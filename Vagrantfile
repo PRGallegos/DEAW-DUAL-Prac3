@@ -9,7 +9,6 @@ Vagrant.configure("2") do |config|
   
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y apache2
     apt-get install -y nginx
   SHELL
   
@@ -19,13 +18,14 @@ Vagrant.configure("2") do |config|
     nginx_pedro.vm.network "private_network", ip: "192.168.57.103"
   
     nginx_pedro.vm.provision "shell", inline: <<-SHELL
-    
+
       cp -v /vagrant/nginx_pedro /var/www/nginx_pedro/html
       chown -R www-data:www-data /var/www/nginx_pedro/html
-      chmod -R 755 /var/www/nginx_pedro/html
+      chmod -R 755 /var/www/nginx_pedro
 
-      cp -v /vagrant/nginx_pedro.conf /etc/nginx/sites-available/nginx_pedro.conf
+      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-available/nginx_pedro.conf
       cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-available/sites-available-nginx_pedro
+      cp -v /vagrant/hosts /etc/hosts
 
 
       systemctl restart nginx
