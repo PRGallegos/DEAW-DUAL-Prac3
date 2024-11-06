@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get install -y nginx
+    systemctl status nginx
   SHELL
   
 
@@ -19,14 +20,13 @@ Vagrant.configure("2") do |config|
   
     nginx_pedro.vm.provision "shell", inline: <<-SHELL
 
-      cp -v /vagrant/nginx_pedro /var/www/nginx_pedro/html
+      cp -vr /vagrant/nginx_pedro /var/www/nginx_pedro/html
       chown -R www-data:www-data /var/www/nginx_pedro/html
       chmod -R 755 /var/www/nginx_pedro
 
-      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-available/nginx_pedro.conf
-      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-available/sites-available-nginx_pedro
+      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-available/nginx_pedro
+      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-enabled/nginx_pedro
       cp -v /vagrant/hosts /etc/hosts
-
 
       systemctl restart nginx
     SHELL
