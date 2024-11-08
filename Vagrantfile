@@ -20,16 +20,24 @@ Vagrant.configure("2") do |config|
   
     nginx_pedro.vm.provision "shell", inline: <<-SHELL
 
+      mkdir -p /var/www/nginx_pedro/html
       cp -vr /vagrant/nginx_pedro /var/www/nginx_pedro/html
+      git clone https://github.com/cloudacademy/static-website-example /var/www/nginx_pedro/html
       chown -R www-data:www-data /var/www/nginx_pedro/html
       chmod -R 755 /var/www/nginx_pedro
 
-      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-available/nginx_pedro
-      cp -v /vagrant/sites-available-nginx_pedro /etc/nginx/sites-enabled/nginx_pedro
+      cp -v /vagrant/nginx_pedro /etc/nginx/sites-available/nginx_pedro
+      ln -s /etc/nginx/sites-available/nombre_web /etc/nginx/sites-enabled/
       cp -v /vagrant/hosts /etc/hosts
 
+      mkdir /home/nombre_usuario/ftp
+      openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt -subj "/"
+      cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
+
       systemctl restart nginx
-    SHELL
+      systemctl restart vsftpd 
+      systemctl status nginx
+      SHELL
 
   end # vm nginx_pedro
 
