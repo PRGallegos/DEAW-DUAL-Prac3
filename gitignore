@@ -1,0 +1,27 @@
+# Archivos y carpetas de Vagrant
+.vagrant/
+
+# Claves privadas y certificados SSL (por seguridad)
+ssl/*.key
+ssl/*.crt
+
+# Archivos de configuración de Nginx y vsftpd (si no quieres que se incluyan)
+config/nginx_pedro
+config/vsftpd.conf
+
+# Archivos de logs
+logs/
+*.log
+/var/log/nginx/*
+/var/log/vsftpd.log
+
+# Archivos temporales y de sistema
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Archivos de sistema de Linux
+*.pid
+*.sock
