@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
       cp -vr /vagrant/nginx_pedro /etc/nginx/sites-available/nginx_pedro 
       ln -s /etc/nginx/sites-available/nginx_pedro /etc/nginx/sites-enabled/
       cp -v /vagrant/hosts /etc/hosts
+      cp ~ /vagrant
 
       mkdir -p /home/pedro/ftp
       openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt -subj "/"
@@ -22,7 +23,7 @@ Vagrant.configure("2") do |config|
 
       systemctl restart nginx
       systemctl restart vsftpd 
-      systemctl status nginx
+      systemctl status nginx 
     SHELL
   end
 end
