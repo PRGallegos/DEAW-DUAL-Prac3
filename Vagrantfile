@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
       chown -R www-data:www-data /var/www/nginx_pedro/html
       chmod -R 755 /var/www/nginx_pedro
 
-      cp -vr /etc/nginx/sites-available/nginx_pedro /vagrant/nginx_pedro
+      cp -vr /vagrant/nginx_pedro /etc/nginx/sites-available/nginx_pedro 
       ln -s /etc/nginx/sites-available/nginx_pedro /etc/nginx/sites-enabled/
       cp -v /vagrant/hosts /etc/hosts
 
