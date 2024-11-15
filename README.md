@@ -52,7 +52,7 @@ PRACTICA_NGINX/
 
 ## Verificación del sitio web
 
-Abre un navegador web en tu máquina anfitriona e ingresa http://nginx_pedro para acceder al sitio web.
+Abre un navegador web en tu máquina anfitriona e ingresa http://pedro para acceder al sitio web.
 Si la configuración es correcta, deberías ver el contenido del sitio clonado en la máquina virtual.
 
 ## Comprobación de logs
@@ -70,7 +70,7 @@ Verifica que el archivo de configuración esté en sites-enabled.
 Asegúrate de que Nginx esté en ejecución: sudo systemctl status nginx.
 Errores en los permisos:
 
-Asegúrate de que los permisos en /var/www/nginx_pedro/html sean correctos (propietario www-data y permisos 755).
+Asegúrate de que los permisos en /var/www/pedro/html sean correctos (propietario www-data y permisos 755).
 Problemas de red en Windows:
 
 Si encuentras problemas de conexión SSH en Windows, usa Git Bash o instala OpenSSH desde la configuración de Windows.
