@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "pedro" do |pedro|
+  config.vm.define "pedro" do |jn|
     pedro.vm.box = "debian/bookworm64"
     pedro.vm.network "private_network", ip: "192.168.57.103"
 
@@ -35,5 +35,5 @@ Vagrant.configure("2") do |config|
       systemctl restart vsftpd 
       systemctl status nginx 
     SHELL
-  end
+  end # pedro 
 end

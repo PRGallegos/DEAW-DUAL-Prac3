@@ -1,10 +1,10 @@
-# 📘 Configuración de Servidor Web Nginx - nginx_pedro
+# 📘 Configuración de Servidor Web Nginx
 
 Este proyecto configura un servidor web Nginx en una máquina virtual Debian utilizando Vagrant. El servidor está configurado para servir contenido estático mediante un archivo de configuración personalizado en el directorio `sites-available` de Nginx.
 
 ## Descripción General
 
-Este proyecto proporciona un entorno web configurado en una máquina virtual usando Vagrant para la gestión y Nginx como servidor. Se configuran directorios, permisos y archivos necesarios para servir una página estática a través del dominio `nginx_pedro` en la IP `192.168.57.103`.
+Este proyecto proporciona un entorno web configurado en una máquina virtual usando Vagrant para la gestión y Nginx como servidor. Se configuran directorios, permisos y archivos necesarios para servir una página estática a través del dominio `pedro` en la IP `192.168.57.103`.
 
 Este README describe paso a paso la configuración de Nginx, desde la instalación hasta la verificación del correcto funcionamiento del sitio.
 
@@ -13,9 +13,9 @@ Este README describe paso a paso la configuración de Nginx, desde la instalaci�
 ## Objetivos del Proyecto
 
 1. Instalar y configurar Nginx en una máquina virtual Debian.
-2. Configurar un sitio web en el directorio `/var/www/nginx_pedro/html`.
+2. Configurar un sitio web en el directorio `/var/www/pedro/html`.
 3. Crear un archivo de configuración de sitio en `sites-available` y enlazarlo a `sites-enabled`.
-4. Asignar el dominio `nginx_pedro` a la IP `192.168.57.103` en el archivo `/etc/hosts` para acceso local.
+4. Asignar el dominio `pedro` a la IP `192.168.57.103` en el archivo `/etc/hosts` para acceso local.
 5. Verificar el funcionamiento del sitio accediendo al dominio desde el navegador.
 
 ---
@@ -28,12 +28,13 @@ Este README describe paso a paso la configuración de Nginx, desde la instalaci�
 
 # 📂 Estructura del Proyecto
 
-```plaintext
-PRACTICA_NGINX/
+```
+PRACTICA3/
 ├── Vagrantfile            # Configuración de Vagrant para la VM con Nginx
 ├── README.md              # Documentación del proyecto
-└── site_config/
-    └── nginx_pedro        # Configuración del sitio para Nginx
+├── nginx_pedro            # Archivo de configuración para Nginx
+└── vsftpd.conf            # Archivo de configuración para FTPS
+
 ```
 
 ---
@@ -41,8 +42,8 @@ PRACTICA_NGINX/
 # Archivos importantes
 
 ```
-/etc/nginx/sites-available/nginx_pedro: Archivo de configuración del sitio en Nginx.
-/var/www/nginx_pedro/html/: Directorio raíz del sitio web.
+/etc/nginx/sites-available/pedro: Archivo de configuración del sitio en Nginx. 
+/var/www/pedro/html/: Directorio raíz del sitio web.
 /etc/hosts: Archivo donde se asigna el nombre de dominio a la IP de la máquina virtual.
 ```
 
@@ -67,13 +68,16 @@ Log de errores: /var/log/nginx/error.log
 El sitio no carga:
 
 Verifica que el archivo de configuración esté en sites-enabled.
-Asegúrate de que Nginx esté en ejecución: sudo systemctl status nginx.
+Asegúrate de que Nginx esté en ejecución:
+
+```
+sudo systemctl status nginx.
+```
+
 Errores en los permisos:
 
 Asegúrate de que los permisos en /var/www/pedro/html sean correctos (propietario www-data y permisos 755).
 Problemas de red en Windows:
-
-Si encuentras problemas de conexión SSH en Windows, usa Git Bash o instala OpenSSH desde la configuración de Windows.
 
 ---
 
