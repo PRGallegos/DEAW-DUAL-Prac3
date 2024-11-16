@@ -1,0 +1,10 @@
+¿Qué pasa si no hago el link simbólico entre sites-available y sites-enabled de mi sitio web?
+Si no haces el enlace simbólico entre sites-available y sites-enabled,
+el archivo de configuración de tu sitio web no será reconocido ni utilizado por Nginx, 
+y tu sitio no estará disponible. 
+
+
+¿Qué pasa si no le doy los permisos adecuados a /var/www/nombre_web?
+
+Si no le das los permisos adecuados al directorio /var/www/nombre_web (/pedro en mi caso),
+Nginx no podrá acceder al contenido del sitio, lo que puede provocar varios problemas. 

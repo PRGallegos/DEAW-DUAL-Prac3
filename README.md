@@ -213,4 +213,3 @@ Con estos pasos, deberías poder solucionar la mayoría de los problemas relacio
 # 👤 Autor
 
 Pedro Rodríguez Gallegos
-Módulo: Despliegue de Aplicaciones Web
