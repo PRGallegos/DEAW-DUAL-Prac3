@@ -182,8 +182,6 @@ Si no responde, revisa la configuración de red de la máquina virtual en Vagran
 pedro.vm.network "private_network", ip: "192.168.57.103"
 ```
 
-3.
-
 Después de realizar cambios, reinicia la máquina virtual:
 
 ```
