@@ -2,7 +2,7 @@
 
 Este proyecto configura un servidor web Nginx en una máquina virtual Debian utilizando Vagrant. El servidor está configurado para servir contenido estático mediante un archivo de configuración personalizado en el directorio `sites-available` de Nginx.
 
-## Descripción General
+## 📑 Descripción General
 
 Este proyecto proporciona un entorno web configurado en una máquina virtual usando Vagrant para la gestión y Nginx como servidor. Se configuran directorios, permisos y archivos necesarios para servir una página estática a través del dominio `pedro` en la IP `192.168.57.103`.
 
@@ -10,7 +10,7 @@ Este README describe paso a paso la configuración de Nginx, desde la instalaci�
 
 ---
 
-## Objetivos del Proyecto
+## 📌 Objetivos del Proyecto
 
 1. Instalar y configurar Nginx en una máquina virtual Debian.
 2. Configurar un sitio web en el directorio `/var/www/pedro/html`.
@@ -26,7 +26,7 @@ Este README describe paso a paso la configuración de Nginx, desde la instalaci�
 - VirtualBox u otro proveedor compatible con Vagrant.
 - Conexión a internet para descargar dependencias.
 
-# 📂 Estructura del Proyecto
+# 🗂️ Estructura del Proyecto
 
 ```
 PRACTICA3/
@@ -39,10 +39,10 @@ PRACTICA3/
 
 ---
 
-# Archivos importantes
+# 🗃️ Archivos importantes
 
 ```
-/etc/nginx/sites-available/pedro: Archivo de configuración del sitio en Nginx. 
+/etc/nginx/sites-available/pedro: Archivo de configuración del sitio en Nginx.
 /var/www/pedro/html/: Directorio raíz del sitio web.
 /etc/hosts: Archivo donde se asigna el nombre de dominio a la IP de la máquina virtual.
 ```
@@ -51,19 +51,19 @@ PRACTICA3/
 
 # 📝 Comprobaciones y Pruebas
 
-## Verificación del sitio web
+## ✔️ Verificación del sitio web
 
 Abre un navegador web en tu máquina anfitriona e ingresa http://pedro para acceder al sitio web.
 Si la configuración es correcta, deberías ver el contenido del sitio clonado en la máquina virtual.
 
-## Comprobación de logs
+## ✅ Comprobación de logs
 
 Para verificar los logs de acceso y errores, revisa los siguientes archivos:
 
 Log de accesos: /var/log/nginx/access.log
 Log de errores: /var/log/nginx/error.log
 
-## Solución de Problemas
+## ❌ Solución de Problemas
 
 El sitio no carga:
 
