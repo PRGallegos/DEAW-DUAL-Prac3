@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
       cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
 
       # Reiniciar servicios
-      systemctl restart nginx<
+      systemctl restart nginx
       systemctl restart vsftpd 
       systemctl status nginx 
     SHELL
