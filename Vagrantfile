@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "pedro" do |jn|
+  config.vm.define "pedro" do |pedro|
     pedro.vm.box = "debian/bookworm64"
     pedro.vm.network "private_network", ip: "192.168.57.103"
 
