@@ -33,7 +33,6 @@ Vagrant.configure("2") do |config|
       # Reiniciar servicios
       systemctl restart nginx
       systemctl restart vsftpd 
-      systemctl status nginx 
     SHELL
   end # pedro 
 end
