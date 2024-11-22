@@ -58,7 +58,7 @@ server {
 }
 ```
 
-Este es el archivo d configuración para hosts:
+Este es el archivo de configuración para hosts:
 
 ```
 127.0.0.1	localhost
