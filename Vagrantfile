@@ -16,23 +16,24 @@ Vagrant.configure("2") do |config|
       # Configurar directorio
       cp -v /vagrant/pedro.conf /etc/nginx/sites-available/pedro.conf
       ln -s /etc/nginx/sites-available/pedro.conf /etc/nginx/sites-enabled/
-      cp -v /vagrant/hosts /etc/hosts
-
-      # Crear usuario y dar permisos
-      useradd -m pedro
-      echo "pedro:pedro" | chpasswd
-      mkdir /home/pedro/ftp
-      chown -R pedro:www-data /home/pedro/ftp
-      chmod -R 755 /home/pedro/ftp
 
       # Configurar FTP
       mkdir -p /home/pedro/ftp
-      openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt -subj "/"
+      openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt -subj "/C=US/ST=State/L=City/O=Organization/OU=OrgUnit/CN=localhost"
+
+      # Crear usuario y dar permisos
+      useradd -m pedro
+      echo "pedro:pedro" | sudo chpasswd
+      mkdir /home/pedro/ftp
+      chown -R pedro:pedro /home/pedro/ftp
+      chmod -R 755 /home/pedro/ftp
+
+
       cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
 
       # Reiniciar servicios
       systemctl restart nginx
       systemctl restart vsftpd 
     SHELL
-  end # pedro 
+  end # pedro
 end

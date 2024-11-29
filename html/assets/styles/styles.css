@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(25, 24, 24);
+    height: 100vh;
+    padding: 4rem;
+}
+
+.cards {
+    flex: 1;
+    gap: .5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.card {
+    flex: 1 1;
+    aspect-ratio: 691/1056;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    filter: brightness(0);
+    transition: 0.5s;
+}
+
+.card:hover {
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+
+.card:hover+* {
+    filter: brightness(.6);
+    transform: translateZ(150px) rotateY(40deg);
+}
+
+.card:hover+*+* {
+    filter: brightness(.4);
+    transform: translateZ(100) rotateY(20deg);
+}
+
+.card:hover+*+*+* {
+    filter: brightness(.2);
+    transform: translateZ(50) rotateY(10deg);
+}
+
+.card:has(+ *:hover) {
+    filter: brightness(.6);
+    transform: translateZ(150px) rotateY(-40deg);
+}
+
+.card:has(+*+*:hover) {
+    filter: brightness(.4);
+    transform: translateZ(100) rotateY(-20deg);
+}
+
+.card:has(+*+*+*:hover) {
+    filter: brightness(.2);
+    transform: translateZ(100) rotateY(-10deg);
+}
+
+
+.card01 {
+    background-image: url(../img/carta01.jpg);
+}
+
+.card02 {
+    background-image: url(../img/carta02.jpg);
+}
+
+.card03 {
+    background-image: url(../img/carta03.jpg);
+}
+
+.card04 {
+    background-image: url(../img/carta04.jpg);
+}
+
+.card05 {
+    background-image: url(../img/carta05.jpg);
+}
+
+.card06 {
+    background-image: url(../img/carta06.jpg);
+}
+
+.card07 {
+    background-image: url(../img/carta07.jpg);
+}
+
+.card08 {
+    background-image: url(../img/carta08.jpg);
+}
+
+.card09 {
+    background-image: url(../img/carta09.jpg);
+}
+
+.card10 {
+    background-image: url(../img/carta10.jpg);
+}
