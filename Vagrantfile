@@ -24,10 +24,9 @@ Vagrant.configure("2") do |config|
       # Crear usuario y dar permisos
       useradd -m pedro
       echo "pedro:pedro" | sudo chpasswd
-      mkdir /home/pedro/ftp
+      # mkdir /home/pedro/ftp
       chown -R pedro:pedro /home/pedro/ftp
       chmod -R 755 /home/pedro/ftp
-
 
       cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
 
