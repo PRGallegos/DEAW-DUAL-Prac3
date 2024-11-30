@@ -21,13 +21,18 @@ Vagrant.configure("2") do |config|
       mkdir -p /home/pedro/ftp
       sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt -subj "/C=US/ST=State/L=City/O=Organization/OU=OrgUnit/CN=localhost"
 
-      # Crear usuario y dar permisos
+      # Crear usuario y establecer contraseña
       useradd -m pedro
-      echo "pedro:pedro" | sudo chpasswd
-      # mkdir /home/pedro/ftp
-      chown -R pedro:pedro /home/pedro/ftp
+      echo "pedro:1234" | chpasswd
+
+      # Crear directorio FTP para el usuario
+      mkdir -p /home/pedro/ftp
+
+      # Ajustar permisos del directorio
+      chown -R pedro:1234 /home/pedro/ftp
       chmod -R 755 /home/pedro/ftp
 
+      # Copiar archivo de configuración de vsftpd
       cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
 
       # Reiniciar servicios
